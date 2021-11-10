@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//@RestController
+@RestController
 public class CompteRestController {
 
     private CompteRepository compteRepository;
@@ -25,6 +25,9 @@ public class CompteRestController {
     }
     @PostMapping(path="/comptes")
     public Compte save(@RequestBody Compte compte){
+        System.out.println("********** Save **************");
+        System.out.println(compte.getCode());
+        System.out.println(compte.getSolde());
         return  compteRepository.save(compte);
     }
     @PutMapping(path="/comptes/{code}")
